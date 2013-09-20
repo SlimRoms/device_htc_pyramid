@@ -46,7 +46,7 @@ on fs
     symlink /firmware_q6/q6.b01 /system/etc/firmware/q6.b01
     symlink /firmware_q6/q6.b00 /system/etc/firmware/q6.b00
     symlink /firmware_q6/q6.mdt /system/etc/firmware/q6.mdt
-    symlink /vendor/firmware/misc/modem.b09 /vendor/firmware/modem.b09
+    symlink /firmware_radio/modem.b09 /system/etc/firmware/modem.b09
     symlink /firmware_radio/modem.b08 /system/etc/firmware/modem.b08
     symlink /firmware_radio/modem.b07 /system/etc/firmware/modem.b07
     symlink /firmware_radio/modem.b06 /system/etc/firmware/modem.b06
