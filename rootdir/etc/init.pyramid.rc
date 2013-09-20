@@ -1,8 +1,9 @@
 import init.pyramid.usb.rc
 
-on early-init
-    mkdir /storage 0050 system sdcard_r
+on init
+    mkdir /devlog 0700 root root
     mkdir /storage/sdcard0 0000 system system
+    mkdir /storage/usbdisk 0000 system system
 
     # for backwards compatibility
     symlink /storage/sdcard0 /sdcard
@@ -14,14 +15,6 @@ on early-init
     setprop ro.usb.idproduct.mtp_adb 0c86
 
     export EXTERNAL_STORAGE /storage/sdcard0    
-		 
-    setprop ro.usb.idproduct.ums 0c86
-    setprop ro.usb.idproduct.rndis 0c86
-    setprop ro.usb.idproduct.mtp 0c86
-    setprop ro.usb.idproduct.mtp_adb 0c86
-
-on init
-    mkdir /devlog 0700 root root      
 
 on fs
 
