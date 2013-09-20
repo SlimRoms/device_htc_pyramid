@@ -22,19 +22,16 @@ $(call inherit-product, device/htc/msm8660-common/msm8660.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/htc/pyramid/overlay
 
-# GPS
+# Ramdisk
 PRODUCT_PACKAGES += \
+    fstab.pyramid \
+    init.pyramid.rc \
+    init.pyramid.usb.rc \
+    ueventd.pyramid.rc \
     gps.pyramid
 
 # Wifi
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
-
-# Boot ramdisk setup
-PRODUCT_COPY_FILES += \
-    device/htc/pyramid/ramdisk/fstab.pyramid:root/fstab.pyramid \
-    device/htc/pyramid/ramdisk/init.pyramid.rc:root/init.pyramid.rc \
-    device/htc/pyramid/ramdisk/init.pyramid.usb.rc:root/init.pyramid.usb.rc \
-    device/htc/pyramid/ramdisk/ueventd.pyramid.rc:root/ueventd.pyramid.rc
 
 ## recovery and custom charging
 PRODUCT_COPY_FILES += \
@@ -43,10 +40,6 @@ PRODUCT_COPY_FILES += \
     device/htc/pyramid/recovery/sbin/offmode_charging:recovery/root/sbin/offmode_charging \
     device/htc/pyramid/recovery/sbin/detect_key:recovery/root/sbin/detect_key \
     device/htc/pyramid/recovery/sbin/htcbatt:recovery/root/sbin/htcbatt
-
-# Some misc configeration files
-PRODUCT_COPY_FILES += \
-    device/htc/pyramid/vold.fstab:system/etc/vold.fstab
 
 # Keylayouts and Keychars
 PRODUCT_COPY_FILES += \
