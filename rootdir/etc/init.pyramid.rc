@@ -63,11 +63,6 @@ on fs
 		 
     setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
 
-    symlink /system/vendor/firmware/fw_bcmdhd.bin /vendor/firmware/fw_bcmdhd.bin
-    symlink /system/vendor/firmware/fw_bcmdhd_apsta.bin /vendor/firmware/fw_bcmdhd_apsta.bin
-    symlink /system/vendor/firmware/fw_bcmdhd_p2p.bin /vendor/firmware/fw_bcmdhd_p2p.bin
-    symlink /system/vendor/firmware/bcm4329.hcd /vendor/firmware/bcm4329.hcd
-
     mkdir /vendor/etc 0771 system system
     symlink /system/vendor/etc/audio_effects.conf /vendor/etc/audio_effects.conf
 
@@ -76,6 +71,18 @@ on fs
     
    # link widevine drm library path
    symlink /system/vendor/lib /vendor/lib
+
+    # wifi
+    mkdir /data/misc/wifi 0770 wifi wifi
+    mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/misc/wifi/hostapd 0770 wifi wifi
+    mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi
+    mkdir /data/misc/dhcp 0770 dhcp dhcp
+    chown dhcp dhcp /data/misc/dhcp
+
+    # create symlink to qcn wpa_supplicant folder
+    symlink /data/misc/wifi/wpa_supplicant /data/system/wpa_supplicant
+    symlink /dev/socket/wpa_wlan0 /data/system/wpa_supplicant/wlan0
     
     mount_all /remount.pyramid        
 
@@ -224,17 +231,22 @@ service thermald /system/bin/thermald
     disabled
 
 service wpa_supplicant /system/bin/wpa_supplicant \
-    -Dnl80211 -iwlan0 -c/data/misc/wifi/wpa_supplicant.conf \
-    -puse_p2p_group_interface=1
-    socket wpa_wlan0 dgram 660 wifi wifi u:object_r:wpa_socket:s0
+    -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
+    -O/data/misc/wifi/sockets \
+    -e/data/misc/wifi/entropy.bin -g@android:wpa_wlan0
+    class main
+    socket wpa_wlan0 dgram 660 wifi wifi
     disabled
     oneshot
 
 service p2p_supplicant /system/bin/wpa_supplicant \
-    -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf -N \
-    -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf -e/data/misc/wifi/entropy.bin -puse_p2p_group_interface=1
+    -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
+    -O/data/misc/wifi/sockets -N \
+    -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf \
+    -puse_p2p_group_interface=1 -e/data/misc/wifi/entropy.bin \
+    -g@android:wpa_wlan0
     class main
-    socket wpa_wlan0 dgram 0660 wifi wifi u:object_r:wpa_socket:s0
+    socket wpa_wlan0 dgram 660 wifi wifi
     disabled
     oneshot
 
@@ -251,10 +263,6 @@ service dhcpcd_bt-pan /system/bin/dhcpcd -ABKL
 	oneshot
 
 service iprenew_wlan0 /system/bin/dhcpcd -n
-	disabled
-	oneshot
-
-service iprenew_p2p /system/bin/dhcpcd -n
 	disabled
 	oneshot
 # wifi--
