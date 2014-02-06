@@ -39,7 +39,9 @@ PRODUCT_COPY_FILES += \
     device/htc/pyramid/recovery/sbin/power_test:recovery/root/sbin/power_test \
     device/htc/pyramid/recovery/sbin/offmode_charging:recovery/root/sbin/offmode_charging \
     device/htc/pyramid/recovery/sbin/detect_key:recovery/root/sbin/detect_key \
-    device/htc/pyramid/recovery/sbin/htcbatt:recovery/root/sbin/htcbatt
+    device/htc/pyramid/recovery/sbin/htcbatt:recovery/root/sbin/htcbatt \
+    device/htc/pyramid/recovery/etc/twrp.fstab:recovery/root/etc/twrp.fstab
+
 
 # Keylayouts and Keychars
 PRODUCT_COPY_FILES += \
