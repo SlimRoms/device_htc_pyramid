@@ -78,3 +78,4 @@ BOARD_HAS_NO_REAL_SDCARD := false
 TW_NO_SCREEN_BLANK := true
 HAVE_SELINUX := true
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
