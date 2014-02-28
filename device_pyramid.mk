@@ -28,7 +28,9 @@ PRODUCT_PACKAGES += \
     init.pyramid.rc \
     init.pyramid.usb.rc \
     ueventd.pyramid.rc \
-    gps.pyramid
+    gps.pyramid \
+    camera.msm8660.so
+
 
 # Wifi
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)

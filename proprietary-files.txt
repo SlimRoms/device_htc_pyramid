@@ -21,16 +21,41 @@ lib/libaudioalsa.so
 lib/libhtc_acoustic.so
 
 # Camera
-lib/hw/camera.default.so
+lib/hw/camera.vendor.msm8660.so
+lib/libBeautyChat.so
+lib/libcam_oem_plugin.so
+lib/libcameraasd.so
 lib/libcameraface.so
 lib/libcamerapp.so
+lib/libDxOAF.so
 lib/libgemini.so
-lib/libidl.so
+lib/libHTC_DIS.so
+lib/libhtccamera.so
+lib/libimage-jpeg-dec-omx-comp.so
+lib/libimage-jpeg-enc-omx-comp.so
+lib/libimage-omx-common.so
+lib/libmllite.so
+lib/libmlplatform.so
+lib/libmmcamera_faceproc.so
+lib/libmmcamera_frameproc.so
+lib/libmmcamera_hdr_lib.so
+lib/libmmcamera_image_stab.so
+lib/libmmcamera_interface2.so
+lib/libmmcamera_rawchipproc.so
+lib/libmmcamera_statsproc30.so
+lib/libmmcamera_statsproc31.so
+lib/libmmcamera_wavelet_lib.so
 lib/libmmipl.so
 lib/libmmjpeg.so
+lib/libmmmpo.so
+lib/libmmmpod.so
+lib/libmmstereo.so
+lib/libmmstillomx.so
 lib/liboemcamera.so
 lib/libOlaEngine.so
+lib/libOlaEngineNew.so
 lib/libposteffect.so
+bin/mm-qcamera-daemon
 
 # Chromatix
 lib/libchromatix_s5k3h1gx_default_video.so
@@ -57,6 +82,7 @@ lib/libmm-color-convertor.so
 
 # Radio
 lib/libdiag.so
+lib/libidl.so
 lib/libdll.so
 lib/libdsi_netctrl.so
 lib/libdsutils.so
