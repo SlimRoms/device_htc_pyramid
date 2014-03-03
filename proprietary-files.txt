@@ -27,7 +27,7 @@ lib/libcam_oem_plugin.so
 lib/libcameraasd.so
 lib/libcameraface.so
 lib/libcamerapp.so
-lib/libDxOAF.so
+lib/libAFDMY.so
 lib/libgemini.so
 lib/libHTC_DIS.so
 lib/libhtccamera.so
