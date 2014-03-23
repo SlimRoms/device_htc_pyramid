@@ -28,8 +28,7 @@ PRODUCT_PACKAGES += \
     init.pyramid.rc \
     init.pyramid.usb.rc \
     ueventd.pyramid.rc \
-    gps.pyramid \
-    camera.msm8660.so
+    gps.pyramid
 
 
 # Wifi
