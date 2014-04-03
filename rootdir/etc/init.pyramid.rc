@@ -12,8 +12,9 @@ on init
 		 
     setprop ro.usb.idproduct.ums 0c86
     setprop ro.usb.idproduct.rndis 0c86
-    setprop ro.usb.idproduct.mtp 0c86
-    setprop ro.usb.idproduct.mtp_adb 0c86
+    setprop ro.usb.idproduct.mtp 0f87
+    setprop ro.usb.idproduct.mtp_adb 0f87
+    setprop ro.usb.idproduct.ptp 0f87
 
     export EXTERNAL_STORAGE /storage/sdcard0    
 
