@@ -185,6 +185,7 @@ on boot
 
     # change owner and group for media server and surfaceflinger
     chown system system /sys/devices/virtual/graphics/fb1/format_3d
+    chown system system /sys/devices/virtual/graphics/fb1/hpd
 
     chown system system /sys/devices/platform/panel_3d/3D_mode
     chmod 0664 /sys/devices/platform/panel_3d/3D_mode
