@@ -219,10 +219,6 @@ service iprenew_wlan0 /system/bin/dhcpcd -n
     disabled
     oneshot
 
-service mpdecision /system/bin/mpdecision --no_sleep --avg_comp --single_core_while_panel_off
-    user root
-    disabled
-
 service netmgrd /system/bin/netmgrd
     class main
 
@@ -304,7 +300,6 @@ on property:sys.radio.shutdown=true
 
 # Powersave
 on property:sys.perf.profile=0
-#    start mpdecision
 #    start thermald
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor conservative
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor conservative
@@ -312,7 +307,6 @@ on property:sys.perf.profile=0
 
 # Balanced
 on property:sys.perf.profile=1
-#    start mpdecision
 #    start thermald
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
@@ -320,7 +314,6 @@ on property:sys.perf.profile=1
 
 # High performance
 on property:sys.perf.profile=2
-#    stop mpdecision
 #    stop thermald
     write /sys/devices/system/cpu/cpu0/online 1
     write /sys/devices/system/cpu/cpu1/online 1
