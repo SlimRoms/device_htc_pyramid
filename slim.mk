@@ -1,24 +1,24 @@
 # Specify phone tech before including full_phone
-$(call inherit-product, vendor/cm/config/gsm.mk)
+$(call inherit-product, vendor/slim/config/gsm.mk)
 
 # Release name
 PRODUCT_RELEASE_NAME := pyramid
 
-# Boot animation
+# Bootanimation
 TARGET_SCREEN_HEIGHT := 960
 TARGET_SCREEN_WIDTH := 540
 
-# Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+# Inherit some common Slim stuff.
+$(call inherit-product, vendor/slim/config/common_full_phone.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/htc/pyramid/device_pyramid.mk)
 
 # Device naming
 PRODUCT_DEVICE := pyramid
-PRODUCT_NAME := cm_pyramid
+PRODUCT_NAME := slim_pyramid
 PRODUCT_BRAND := htc
-PRODUCT_MODEL := Sensation
+PRODUCT_MODEL := HTC Sensation
 PRODUCT_MANUFACTURER := HTC
 
 # Set build fingerprint / ID / Product Name ect.
