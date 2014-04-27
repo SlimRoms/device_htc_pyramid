@@ -16,6 +16,6 @@ lpa.use-stagefright=true
 # wifi
 wifi.interface=wlan0
 
-# UMS
-persist.sys.usb.config=mass_storage,adb
+# usb
+persist.sys.usb.config=mtp,adb
 ro.vold.umsdirtyratio=20
