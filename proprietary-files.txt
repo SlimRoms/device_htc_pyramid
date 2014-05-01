@@ -96,11 +96,6 @@ lib/libmlplatform.so
 lib/libmpl_jni.so
 lib/libmpl.so
 
-# Wifi
-etc/firmware/fw_bcmdhd.bin
-etc/firmware/fw_bcmdhd_apsta.bin
-etc/firmware/fw_bcmdhd_p2p.bin
-
 # Video Firmwares
 etc/firmware/a225p5_pm4.fw
 etc/firmware/a225_pfp.fw
