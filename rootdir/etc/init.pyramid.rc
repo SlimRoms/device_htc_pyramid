@@ -198,6 +198,12 @@ on boot
     # fast charge
     write /sys/kernel/fast_charge/force_fast_charge 2
 
+    # Touch boost
+    write /sys/module/cpu_boost/parameters/boost_ms 20
+    write /sys/module/cpu_boost/parameters/sync_threshold 1242000
+    write /sys/module/cpu_boost/parameters/input_boost_freq 1134000
+    write /sys/module/cpu_boost/parameters/input_boost_ms 40
+
 # Services start here
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class main
