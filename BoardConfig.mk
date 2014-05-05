@@ -51,6 +51,9 @@ BOARD_USES_LEGACY_RIL := true
 # Required for Sensors
 COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 
+# Lights
+TARGET_HAS_NO_BLUE_LED := true
+
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/htc/pyramid/bluetooth/include
 BOARD_BLUEDROID_VENDOR_CONF := device/htc/pyramid/bluetooth/vnd_pyramid.txt
