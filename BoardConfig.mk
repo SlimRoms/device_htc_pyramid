@@ -62,6 +62,9 @@ BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := false
 # Bluetooth/Wifi
 -include device/htc/msm8660-common/bcmdhd.mk
 
+# External apps on SD
+TARGET_EXTERNAL_APPS = sdcard0
+
 # Filesystem
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
